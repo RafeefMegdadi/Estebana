@@ -1,0 +1,374 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require font-awesome
+ */
+
+ @import "bootstrap/scss/bootstrap";
+
+// navbar and footer
+
+.navbar {
+  background-color: #51555B;
+
+  .navbar-nav {
+    .nav-link {
+      color: #fff;
+
+      &:hover {
+        color: #B0B0B0;
+      }
+    }
+
+    .active > .nav-link {
+      color: #fbc531;
+    }
+  }
+}
+
+footer {
+
+  a.text-light:hover {
+    color: #B0B0B0 !important;
+    text-decoration: none;
+  }
+
+  .cizgi {
+    border-right: 1px solid white;
+  }
+}
+
+@media (max-width: 992px) {
+  footer .cizgi {
+    border-right: none;
+  }
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.bg-footer{
+  background-color:#51555B;
+}
+
+//sign in CSS
+
+.mtop-10 {
+  margin-top: 25px;
+}
+
+.gradient-custom-2 {
+background-color: #9fa4c4;
+background-image: linear-gradient(315deg, #B0B0B0 0%, #223C60 74%);
+}
+.btn-sign
+{
+	background: #223C60;
+  color: #fff;
+}
+
+.btn-sign:hover{
+  color:#B0B0B0
+}
+
+
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+  }
+}
+
+// wellcome page
+
+.letter-spacing {
+  letter-spacing: 2px;
+}
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  background: url("doc1.png") no-repeat;
+  background-size: cover;
+  min-height: 550px;
+}
+
+.banner .block {
+  padding: 100px 0px 160px;
+
+  h1 {
+    font-size: 60px;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+    text-transform: capitalize;
+    color: #51555B;
+  }
+}
+
+.btn {
+  display: inline-block;
+  font-size: 14px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  padding: .75rem 2rem;
+  font-family: "Exo", sans-serif;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 2px solid transparent;
+}
+
+.btn:focus {
+  outline: 0px;
+  box-shadow: none;
+}
+
+.btn-main-2 {
+  background: #223C60;
+  color: #fff;
+
+  &:hover {
+    color: #B0B0B0;
+  }
+}
+
+.btn.btn-icon i {
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+  padding-left: 15px;
+}
+
+.btn-round-full {
+  border-radius: 8px;
+}
+
+// second section
+
+.features {
+  margin-top: -60px;
+  z-index: 1 ;
+  position: relative;
+}
+
+.feature-item {
+  flex-basis: 33.33%;
+
+  /* set the initial lenght of a flexible item*/
+  margin: 0px 10px;
+  padding: 40px 30px;
+  background-color: #D6DDE0;
+  border-radius: 15px 15px 15px 15px;
+  box-shadow: 0px 0px 30px 0px rgba(0, 42, 106, 0.1);
+
+  .feature-icon i {
+    font-size: 50px;
+    color: #223a66;
+  }
+
+  h4 {
+    color: #223a66;
+  }
+
+  p {
+    font-size: 15px;
+    color: gray;
+  }
+}
+
+.w-hours li {
+  padding: 6px 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+//third section 
+
+.section {
+  padding: 100px 0;
+}
+
+.about-img {
+  border-radius: 5px;
+  box-shadow: 0px 0px 30px 0px rgba(0, 42, 106, 0.1);
+
+  /*shadow behind the img */
+}
+
+.title-color {
+  color: #223a66;
+}
+
+// fourth section 
+.cta-page {
+  margin-top: -50px;
+  background: url("main2.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.text-lg {
+  font-size: 2.5rem;
+}
+
+//faq 
+
+.section_padding_80 {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.faq_area {
+  position: relative;
+  z-index: 1;
+}
+
+//counter 
+
+.cta-section {
+  margin-bottom: -100px;
+}
+
+.counter-stat {
+  text-align: center;
+  padding: 55px 0px 40px 0px;
+  position: relative;
+
+  i {
+    display: block;
+    color: rgba(255, 255, 255, 0.06);
+    font-size: 70px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    -webkit-transform: translateY(25px);
+    transform: translateY(25px);
+  }
+
+  span {
+    font-size: 70px;
+    color: #fff;
+  }
+
+  p {
+    margin-bottom: 0px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+// studies
+
+.title-color1 {
+  color: #223a66;
+
+  &:hover {
+    color: #51555B;
+  }
+}
+
+.service-block {
+  background-color: #D6DDE0;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  box-shadow: 0 0 38px rgba(21, 40, 82, 0.07);
+  box-raduis:10px;
+  img {
+    width: 100%;
+    border: 2px solid #fff;
+  }
+}
+
+//question 
+.bg-b
+{
+  background-color:#D6DDE0;
+}
+.bg-ques
+{
+  background: url("question_bg.png") no-repeat ;
+  background-size: cover;
+  position: relative;
+}
+
+.btn-q {
+  font-size: 10px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  padding: .15rem 1rem;
+  font-family: "Exo", sans-serif;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  margin-right: 5px;
+}
+//survey
+.px-10
+{
+  padding-right:150px;
+  padding-left:150px;
+  padding-top:50px;
+}
+
+// about
+
+.page-title {
+  margin-top: 150px;
+  position: relative;
+}
+
+.bg-about{
+   background: #446FA0;
+}
+
+.page-title .block {
+  h1, p {
+    color: #fff;
+  }
+}
+
+.mt-20{
+  margin-top:80px;
+  padding-top:30px;
+}
+
+.service-about {
+  background-color: #c2ccdf;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  box-shadow: 0 0 38px rgba(21, 40, 82, 0.07);
+  box-raduis:10px;
+  img {
+    width: 100%;
+    border: 5px solid #fff;
+  }
+}
+
+// profile 
+
+.btn-profile{
+  backgroung-color: #223C60 ;
+}

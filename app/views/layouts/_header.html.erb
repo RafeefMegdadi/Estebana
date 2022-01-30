@@ -1,0 +1,47 @@
+  <!--- Navbar --->
+  <nav class="navbar fixed-top navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white px-3" href="/"><%= image_tag "covid2.png" %><span class="m-3 h2" style="font-family: 'Acme', sans-serif;">Estebana</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nvbCollapse" aria-controls="nvbCollapse">
+        <span class="navbar-toggler-icon">
+          <i class="fa fa-bars" style="color: white; margin-top: 5px;"></i>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse" id="nvbCollapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item pl-1">
+            <a class="nav-link" href="/"><i class="fa fa-home fa-fw mr-1"></i>Home</a>
+          </li>
+          
+            <li class="nav-item pl-1">
+              <a class="nav-link" href="/profile"><i class="fa fa-user fa-fw mr-1"></i>Profile</a>
+            </li>
+          
+          <li class="nav-item pl-1">
+            <a class="nav-link" href="/faq"><i class="fa fa-question-circle fa-fw mr-1"></i>FAQ</a>
+          </li>
+          <% if(current_user and current_user.role ==2)%>
+            <li class="nav-item pl-1">
+              <a class="nav-link" href="/admin"><i class="fa fa-user-o fa-fw mr-1"></i>Admin</a>
+            </li>
+          <% end %>
+          <% if current_user %>
+            <li class="nav-item pl-1">
+              <a class="nav-link" href="/questions"><i class="fa fa-question fa-fw mr-1"></i>Questions</a>
+            </li>
+          <% end %>
+          <li class="nav-item pl-1">
+            <a class="nav-link" href="/welcome/about"><i class="fa fa-info-circle fa-fw mr-1"></i>About</a>
+          </li>
+          <li class="nav-item pl-1">
+            <% if current_user.nil? %>
+              <%= link_to ('<i class="fa fa-sign-in"></i> Sign In').html_safe, new_user_session_path, method: :get, class: 'nav-link'  %>
+            <% else %>
+              <%= link_to ('<i class="fa fa-sign-in fa-fw mr-1"></i> Sign Out').html_safe, destroy_user_session_path, method: :delete, class: 'nav-link'  %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--# Navbar #-->

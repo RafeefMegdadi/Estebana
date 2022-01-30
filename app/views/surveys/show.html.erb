@@ -1,0 +1,79 @@
+<% p  = {5 =>"I strongly do not relate", 4 => "I rarely ralate", 3 => "I sometimes relate", 2 => "I usually relate", 1 => "I always relate"}%>
+<body class="bg-ques">
+  <div class="mx-0 container mt-20 px-10 mx-sm-auto">
+    <div class="card">
+      <div class="card-header" style="background-color:#223C60;">
+        <h2 class="card-title text-center text-white mt-2">New Survey</h2>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <i class="far fa-file-alt fa-4x mb-3 text-primary"></i>
+          <h4>
+            <strong class="title-color">Your Survey From : <%= @survey.created_at %></strong>
+          </h4>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color">Do you feel feverish, have flu-like chills, or a fever with an oral temperature of 38°C or higher?</strong></p>
+        <div class="form-check title-color mb-2">
+         <%= p[ @survey.fever_chills ] %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color">Do you have a cough or has a chronic cough gotten worse recently?, how much can you rete your case?</strong></p>
+        <div class="form-check title-color mb-2">
+          <%= p[@survey.cough] %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color">Are you experiencing trouble breathing or shortness of breath?, how much can you rete your case?</strong></p>
+        <div class="form-check title-color mb-2">
+          <%= p[@survey.difficulty_breathing] %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color">Do you feel an unusually intense fatigue for no obvious reason? how much can you rete your case?</strong></p>
+        <div class="form-check title-color mb-2">
+          <%= p[@survey.fatigue] %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color">Do you have unusual headache for no specific reason?, how much can you rete your case?</strong></p>
+        <div class="form-check title-color mb-2">
+          <%= p[@survey.headache] %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color">Have you had a sudden loss of smell and loss of taste?, how much can you rete your case?</strong></p>
+        <div class="form-check title-color mb-2">
+          <%= p[@survey.sensory_loss] %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color">Do you have a sore throat?, how much can you rete your case?</strong></p>
+        <div class="form-check title-color mb-2">
+          <%= p[@survey.sore_throat] %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color">do you suffer from nausea of an unknown cause?, how much can you rete your case?</strong></p>
+        <div class="form-check title-color mb-2">
+          <%= p[@survey.nausea] %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color">Do you suffer from unusual unstability in your digestive system eg.diarrhea?, how much can you rete your case?</strong></p>
+        <div class="form-check title-color mb-2">
+          <%= p[@survey.diarrhea] %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color">Do you have unusual or unexplained muscle pain, or stiffness (not related to physical activity)?, how much can you rete your case?</strong></p>
+        <div class="form-check title-color mb-2">
+          <%= p[@survey.body_ache] %>
+        </div>
+        <hr />
+        <div class="form-outline mb-4">
+          <h5 class="text-center "><strong class="mb-0 title-color">Your comment:</strong></h5>
+          <div class="title-color text-center" >
+            <%= @survey.comment%>
+          </div>
+            
+        </div>
+        <div class="card-footer text-center">
+          <%= link_to 'Back', profile_path(@profile), :class => "btn btn-sign  mb-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

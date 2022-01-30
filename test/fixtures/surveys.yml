@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fever_chills: 1
+  cough: 1
+  difficulty_breathing: 1
+  fatigue: 1
+  body_ache: 1
+  headache: 1
+  sensory_loss: 1
+  sore_throat: 1
+  nausea: 1
+  diarrhea: 1
+  comment: MyText
+
+two:
+  fever_chills: 1
+  cough: 1
+  difficulty_breathing: 1
+  fatigue: 1
+  body_ache: 1
+  headache: 1
+  sensory_loss: 1
+  sore_throat: 1
+  nausea: 1
+  diarrhea: 1
+  comment: MyText

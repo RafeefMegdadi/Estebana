@@ -1,0 +1,52 @@
+<body class="bg-ques">
+  <section class="gradient-form mt-20">
+  <div class="container py-5 ">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-xl-8 h-100">
+        <div class="card rounded-3">
+          <div class="row g-0">
+          <div class="col card-body gradient-custom-2 text-white text-center"> 
+            <div class="">
+              <%= image_tag "covid2.png" %>
+            </div>
+            <h1 class="mt-1 mb-2 pb-1 text-center" style="font-family: 'Acme', sans-serif;">Estebana</h1>
+          </div>
+        </div>
+          <div class="row g-0">
+            <div class="col card-body"> 
+                  <%= form_with(model: study) do |form| %>
+                    <% if study.errors.any? %>
+                      <div class="border border-danger bg-danger m-2" id="error_explanation">
+                        <h3 class="pt-2 px-2"><%= pluralize(study.errors.count, "error") %> prohibited this study from being saved:</h3>
+                        <ul>
+                          <% study.errors.each do |error| %>
+                            <li><%= error.full_message %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                <h4 class="text-center title-color">Write New Study Details</h4>
+                <div class="form-outline mb-4">
+                  <h5><strong class="title-color"><%= form.label :title %></strong></h5>
+                  <%= form.text_field :title, :class =>"form-control p-2" %>
+                </div>
+                <div class="form-outline mb-4">
+                  <h5><strong class="title-color"><%= form.label :author %></strong></h5>
+                  <%= form.text_field :author, :class =>"form-control p-2" %>
+                </div>
+                <div class="form-outline mb-4">
+                  <h5><strong class="title-color"><%= form.label :content %></strong></h5>
+                  <%= form.text_area :content, :class =>"form-control p-2" %>
+                </div>
+                <div class="actions">
+                  <%= form.submit "Publish Study", :class => "btn btn-sign btn-block fa-lg mb-3 form-control" %>
+                </div>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>

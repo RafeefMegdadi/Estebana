@@ -1,0 +1,42 @@
+<body class="bg-ques">
+	<section class=" px-10 ">
+		<div class="container py-5 h-100 ">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-xl-10">
+					<div class="card rounded-3">
+						<div class="row g-0">
+							<div class="col card-body gradient-custom-2 text-white text-center"> 
+								<div class="">
+									<%= image_tag "covid2.png" %>
+								</div>
+								<h1 class="mt-1 mb-5 pb-1 text-center" style="font-family: 'Acme', sans-serif;"><%= @study.title %></h1>
+							</div>
+						</div>
+						<div class="row g-0">
+							<div class="row card-body d-flex"> 
+								<div class=" form-outline mb-4">
+									<h4 ><strong class="title-color">Author:</strong></h4>
+									<%= @study.author %>
+								</div>
+								<hr>
+								<div class="form-outline mb-4">
+									<h4><strong class="title-color">Content:</strong></h4>
+									<%= @study.content %>
+								</div>
+								
+								<div class="text-center">
+									<% if current_user and current_user.role != 0 %>
+										<hr>	
+										<%= link_to 'Edit study', edit_study_path(@study), :class => "btn btn-sign  mb-3" %>
+										<%= link_to 'Back', studies_path(@studies), :class => "btn btn-sign  mb-3" %>
+									<% end %>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>

@@ -1,0 +1,111 @@
+<body class="bg-ques">
+  <div class="mx-0 container mt-20 px-10 mx-sm-auto">
+    <div class="card">
+      <div class="card-header" style="background-color:#223C60;">
+        <h2 class="card-title text-center text-white mt-2" id="exampleModalLabel">New Survey</h2>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <i class="far fa-file-alt fa-4x mb-3 text-primary"></i>
+          <h4>
+            <strong class="title-color">Fill In Your Symptoms:</strong>
+          </h4>
+        </div>
+        <hr />
+        <%= form_with(model: survey) do |form| %>
+          <% if survey.errors.any? %>
+            <div class="border border-danger bg-danger m-2"  id="error_explanation">
+              <h2 class="pt-2 px-2"><%= pluralize(survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
+              <ul>
+                <% survey.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+        <% p  = {" I strongly do not relate" => 5, " I rarely ralate" => 4, " I sometimes relate" => 3, " I usually relate" => 2, " I always relate" => 1}%>
+        <div class="actions">
+          <%= form.hidden_field :user_id, value: current_user.id %>
+        </div>
+        <p><strong class="px-3 title-color"><%= form.label "Do you feel feverish, have flu-like chills, or a fever with an oral temperature of 38°C or higher?" %></strong></p>
+        <div class="form-check title-color mb-2">
+          <% p.each do |key, value| %>
+            <%= form.radio_button :fever_chills, value %><%= key %> <br/>
+          <% end %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color"><%= form.label "Do you have a cough or has a chronic cough gotten worse recently?"%></strong></p>
+        <div class="form-check title-color mb-2">
+          <% p.each do |key, value| %>
+            <%= form.radio_button :cough, value %><%= key %> <br/>
+          <% end %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color"><%= form.label "Are you experiencing trouble breathing or shortness of breath?" %></strong></p>
+        <div class="form-check title-color mb-2">
+          <% p.each do |key, value| %>
+            <%= form.radio_button :difficulty_breathing, value %><%= key %> <br/>
+          <% end %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color"><%= form.label "Do you feel an unusually intense fatigue for no obvious reason?" %></strong></p>
+        <div class="form-check title-color mb-2">
+          <% p.each do |key, value| %>
+            <%= form.radio_button :fatigue, value %><%= key %> <br/>
+          <% end %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color"><%= form.label "Do you have unusual headache for no specific reason?" %></strong></p>
+        <div class="form-check title-color mb-2">
+          <% p.each do |key, value| %>
+            <%= form.radio_button :headache, value %><%= key %> <br/>
+          <% end %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color"><%= form.label "Have you had a sudden loss of smell and loss of taste?" %></strong></p>
+        <div class="form-check title-color mb-2">
+          <% p.each do |key, value| %>
+            <%= form.radio_button :sensory_loss, value %><%= key %> <br/>
+          <% end %>        </div>
+        <hr />
+        <p><strong class="px-3 title-color"><%= form.label "Do you have a sore throat?" %></strong></p>
+        <div class="form-check title-color mb-2">
+          <% p.each do |key, value| %>
+            <%= form.radio_button :sore_throat, value %><%= key %> <br/>
+          <% end %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color"><%= form.label "do you suffer from nausea of an unknown cause?" %></strong></p>
+        <div class="form-check title-color mb-2">
+          <% p.each do |key, value| %>
+            <%= form.radio_button :nausea, value %><%= key %> <br/>
+          <% end %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color"> <%= form.label "Do you suffer from unusual unstability in your digestive system, such as diarrhea?" %></strong></p>
+        <div class="form-check title-color mb-2">
+          <% p.each do |key, value| %>
+            <%= form.radio_button :diarrhea, value %><%= key %> <br/>
+          <% end %>
+        </div>
+        <hr />
+        <p><strong class="px-3 title-color"> <%= form.label "Do you have unusual or unexplained muscle pain, or stiffness (not related to physical activity)?" %></strong></p>
+        <div class="form-check title-color mb-2">
+          <% p.each do |key, value| %>
+            <%= form.radio_button :body_ache, value %><%= key %> <br/>
+          <% end %>
+        </div>
+        <hr />
+        <div class="form-outline mb-4">
+          <h5 class="text-center"><strong><%= form.label :Do_you_have_any_comments?, :class=>"mb-0 title-color"%></strong></h5>
+          <%= form.text_area :comment, :class =>"form-control title-color" %>
+        </div>
+        <div class="card-footer text-center">
+          <%= form.submit "Send Survey", :class => "btn btn-sign px-5 fa-lg mb-3" %>
+        </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</body>

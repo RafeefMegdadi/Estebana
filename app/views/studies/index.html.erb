@@ -1,0 +1,52 @@
+<body class="bg-ques">
+  <section class="section">
+    <div class="container ">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-xl-12">
+          <div class="card rounded-3">
+            <div class="row g-0">
+              <div class="col card-body gradient-custom-2 text-white text-center"> 
+                <div class="">
+                  <%= image_tag "covid2.png" %>
+                </div>
+                <h1 class="mt-1 mb-5 pb-1 text-center" style="font-family: 'Acme', sans-serif;"><strong class="text-lg">Studies</strong></h1>
+              </div>
+            </div>
+            <div class="row g-0">
+              <div class="col card-body"> 
+               <section>
+                <div class="container">
+                  <div class="row">
+
+                    <% @studies.each_with_index do |study, index| %>
+                      <div class="col-lg-4 d-flex d-inline-block col-md-6 col-sm-6">
+                        <div class="service-block mb-5">
+                          <%= image_tag("study#{index+1}.png" , :class => "img-fluid") %>
+                          <h3 class="mt-4 mb-2 title-color"><%= study.title %></h3>
+                          <h5 class="mt-4 mb-4 title-color"><%= study.author %></h5>
+                          <div class="d-flex justify-content-end">
+                            <%= link_to 'Show ', study, :class=>"title-color" %> |
+                          <% if current_user and (current_user.role != 0 )%>
+                            <%= link_to 'Edit ', edit_study_path(study), :class=>"title-color" %> |
+                            <%= link_to 'Destroy', study, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"title-color" %>
+                          <%end%>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+                <% if current_user and current_user.role !=0 %>
+                <div class="actions d-flex justify-content-center ">
+                  <%= link_to 'Publish new study?', new_study_path , :class => "btn btn-sign fa-md mb-3" %>
+                </div>
+                <%end%>
+              </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>

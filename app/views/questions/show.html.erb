@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+<body class="bg-ques">
+	<section class=" px-10 ">
+		<div class="container py-5 h-100 ">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-xl-8">
+					<div class="card rounded-3">
+						<div class="row g-0">
+							<div class="col card-body gradient-custom-2 text-white text-center"> 
+								<div class="">
+									<%= image_tag "covid2.png" %>
+								</div>
+								<h1 class="mt-1 mb-5 pb-1 text-center" style="font-family: 'Acme', sans-serif;">Question</h1>
+							</div>
+						</div>
+						<div class="row g-0">
+							<div class="col card-body"> 
+								<div class="form-outline mb-4">
+									<h4><strong class="title-color">Subject:</strong></h4>
+									<%= @question.subject %>
+								</div>
+								<hr>
+								<div class="form-outline mb-4">
+									<h4><strong class="title-color">Content:</strong></h4>
+									<%= @question.content %>
+								</div>
+								<hr>
+								<% if current_user and current_user.role != 0 %>
+									<%= render 'form_answer', question: @question %>
+								<% end %>
+
+								<% @answers.each do |answer| %>
+									<div class="border p-2 bg-b container">
+										<h4><strong class="p-2 title-color">Author:</strong></h4>
+										<p class ="p-2"><%= User.find(answer.user_id).name%></p><hr>
+										<h4><strong class="p-2 title-color">Anwsers:</strong></h4>
+										<p class ="p-2"><%= answer.content %></p><hr>
+										<h4><strong class="p-2 title-color">Created at:</strong></h4>
+										<p class ="p-2"><%= answer.created_at %></p>
+										<hr>
+										<% if current_user and (current_user.role != 0 or current_user.id == answer.user_id) %>
+											<%= link_to 'Edit Answer', edit_answer_path(answer), :class => "btn btn-sign mb-3 text-end" %> 
+											<%= link_to 'Delete', answer, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sign mb-3 text-end"  %>
+										<% end %>
+									</div>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
