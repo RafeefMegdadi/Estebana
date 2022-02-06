@@ -17,18 +17,17 @@
                <section>
                 <div class="container">
                   <div class="row">
-
                     <% @studies.each_with_index do |study, index| %>
                       <div class="col-lg-4 d-flex d-inline-block col-md-6 col-sm-6">
                         <div class="service-block mb-5">
-                          <%= image_tag("study#{index+1}.png" , :class => "img-fluid") %>
+                          <%= image_tag("study#{(index%6)+1}.png" , :class => "img-fluid") %>
                           <h3 class="mt-4 mb-2 title-color"><%= study.title %></h3>
                           <h5 class="mt-4 mb-4 title-color"><%= study.author %></h5>
                           <div class="d-flex justify-content-end">
-                            <%= link_to 'Show ', study, :class=>"title-color" %> |
+                            <%= link_to 'Show ', study, :class=>"title-color" %> 
                           <% if current_user and (current_user.role != 0 )%>
-                            <%= link_to 'Edit ', edit_study_path(study), :class=>"title-color" %> |
-                            <%= link_to 'Destroy', study, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"title-color" %>
+                            |<%= link_to ' Edit ', edit_study_path(study), :class=>"title-color" %> 
+                            |<%= link_to ' Destroy', study, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"title-color" %>
                           <%end%>
                           </div>
                         </div>

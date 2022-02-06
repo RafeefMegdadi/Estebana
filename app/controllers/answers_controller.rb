@@ -4,7 +4,6 @@ class AnswersController < ApplicationController
   # GET /answers or /answers.json
   def index
     @answers = Answer.all
-
   end
 
   # GET /answers/1 or /answers/1.json
@@ -13,7 +12,6 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
-
     if !(current_user and current_user.role != 0)
       redirect_to question_url(@answer.question_id), notice: "You don't have access to create an answer."
     else

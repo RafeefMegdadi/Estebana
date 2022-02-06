@@ -7,9 +7,9 @@ class QuestionsController < ApplicationController
     @questions2 = []
 
     Question.all.each do |question|
-      if question.user_id == current_user.id or question.is_private == false
+      if question.is_private == false
         @questions.append(question)
-      else   
+      elsif question.is_private == true or question.user_id == current_user.id 
         @questions2.append(question)
       end
     end

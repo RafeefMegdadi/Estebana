@@ -28,7 +28,6 @@
 								<% if current_user and current_user.role != 0 %>
 									<%= render 'form_answer', question: @question %>
 								<% end %>
-
 								<% @answers.each do |answer| %>
 									<div class="border p-2 bg-b container">
 										<h4><strong class="p-2 title-color">Author:</strong></h4>
@@ -38,7 +37,7 @@
 										<h4><strong class="p-2 title-color">Created at:</strong></h4>
 										<p class ="p-2"><%= answer.created_at %></p>
 										<hr>
-										<% if current_user and (current_user.role != 0 or current_user.id == answer.user_id) %>
+										<% if current_user and current_user.role != 0 %>
 											<%= link_to 'Edit Answer', edit_answer_path(answer), :class => "btn btn-sign mb-3 text-end" %> 
 											<%= link_to 'Delete', answer, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sign mb-3 text-end"  %>
 										<% end %>

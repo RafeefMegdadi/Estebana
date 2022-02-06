@@ -126,9 +126,10 @@
               </div>
               <div class="col-sm-9">
                 <%= f.label :vaccinated, "No", :value => 0, :class =>"title-color"  %>
-                  <%= f.radio_button :vaccinated, true %>
+                  <%= f.radio_button :vaccinated, false %>
+                  
                   <%= f.label :vaccinated, "Yes", :value => 1, :class =>"title-color" %>
-                  <%= f.radio_button :vaccinated, false, :checked => true %>
+                  <%= f.radio_button :vaccinated, true%>
               </div>
             </div>
             <hr>

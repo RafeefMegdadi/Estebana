@@ -11,9 +11,7 @@
         </tr>
       </thead>
       <tbody class="title-color">
-
-
-      <% @questions2.each do |question| %>
+        <% @questions2.each do |question| %>
         <% if current_user and (current_user.role != 0 or question.user_id == current_user.id ) %>
           <tr>
             <td class="text-center title-color"><%= question.subject %></td>
@@ -23,18 +21,15 @@
               <div class="btn-group " role="group" aria-label="Basic example">
                 <%= button_to 'Show ', question, method: :get, :class=>"btn-q btn-secondary" %>
                 <% if current_user and (current_user.role != 0 or current_user.id == question.user_id) %>
-                <%= button_to 'Edit ', edit_question_path(question), method: :get, :class=>"btn-q btn-secondary"%>
-                <%= button_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn-q btn-danger" %>
+                  <%= button_to 'Edit ', edit_question_path(question), method: :get, :class=>"btn-q btn-secondary"%>
+                  <%= button_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn-q btn-danger" %>
                 <% end %>
               </div>
             </td>
           </tr>
         <%end%>
-      <%end%>
-
-       
-
-          <% @questions.each do |question| %>
+        <%end%>
+        <% @questions.each do |question| %>
           <tr>
             <td class="text-center title-color"><%= question.subject %></td>
             <td class="text-center title-color"><%= question.is_faq %></td>
@@ -43,11 +38,10 @@
               <div class="btn-group " role="group" aria-label="Basic example">
                 <%= button_to 'Show ', question, method: :get, :class=>"btn-q btn-secondary" %>
                 <% if current_user and (current_user.role != 0 or current_user.id == question.user_id) %>
-                <%= button_to 'Edit ', edit_question_path(question), method: :get, :class=>"btn-q btn-secondary"%>
-                <%= button_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn-q btn-danger" %>
+                  <%= button_to 'Edit ', edit_question_path(question), method: :get, :class=>"btn-q btn-secondary"%>
+                  <%= button_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn-q btn-danger" %>
+                <% end %>
               </div>
-          <% end %>
-              
             </td>
           </tr>
         <% end %>

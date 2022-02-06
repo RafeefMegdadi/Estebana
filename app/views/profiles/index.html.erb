@@ -50,7 +50,7 @@
                       <%= user.name %> 
                       <br/> 
                       <strong>Age: </strong>
-                      <%=((Time.zone.now - @profile.date_of_birth.to_time) / 1.year.seconds).floor%>
+                      <%=((Time.zone.now - user.date_of_birth.to_time) / 1.year.seconds).floor%>
                       <br/>
                       <strong>Medical state: </strong> 
                       <%= user.medical_state %> 
